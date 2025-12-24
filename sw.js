@@ -1,11 +1,12 @@
-// Service Worker for Study Timer
-const CACHE_NAME = 'study-timer-v1';
+// Service Worker for Deep Work Timer
+const CACHE_NAME = 'deep-work-timer-v2';
 const ASSETS = [
-    '/',
-    '/index.html',
-    '/style.css',
-    '/app.js',
-    '/manifest.json'
+    './',
+    './index.html',
+    './style.css',
+    './app.js',
+    './manifest.json',
+    './logo.png'
 ];
 
 // Install event - cache assets
