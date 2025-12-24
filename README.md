@@ -6,7 +6,7 @@ A clean, distraction-free deep work timer inspired by Cal Newport's [Deep Work](
 
 ## 🚀 Live Demo
 
-**[Try it now on GitHub Pages →](https://YOUR_USERNAME.github.io/deep-work-timer/)**
+**[Try it now on GitHub Pages →](https://MuntasirMalek.github.io/deep-work-timer/)**
 
 ## ✨ Features
 
@@ -41,12 +41,12 @@ A clean, distraction-free deep work timer inspired by Cal Newport's [Deep Work](
 ## 📦 Installation
 
 ### Use Online
-Simply visit the [GitHub Pages link](https://YOUR_USERNAME.github.io/deep-work-timer/) and start working!
+Simply visit the [GitHub Pages link](https://MuntasirMalek.github.io/deep-work-timer/) and start working!
 
 ### Self-Host
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/deep-work-timer.git
+   git clone https://github.com/MuntasirMalek/deep-work-timer.git
    ```
 2. Serve with any static server:
    ```bash
