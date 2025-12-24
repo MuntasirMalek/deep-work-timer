@@ -2,7 +2,7 @@
     "name": "Deep Work Timer",
     "short_name": "Deep Work",
     "description": "A clean, distraction-free deep work timer using the 90/20 and 50/10 rules for optimal focus and productivity.",
-    "start_url": "/",
+    "start_url": "/deep-work-timer/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#1a73e8",
