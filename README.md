@@ -2,7 +2,6 @@
 
 A clean, distraction-free deep work timer inspired by Cal Newport's [Deep Work](https://www.calnewport.com/books/deep-work/) philosophy. Uses research-backed timing methods to maximize focus and productivity.
 
-![Deep Work Timer Screenshot](screenshot.png)
 
 ## 🚀 Live Demo
 
@@ -83,6 +82,16 @@ deep-work-timer/
 4. **Break Phase** - Rest and recharge
 5. **Wake-Up Alarm** - 5-minute looping alarm before next cycle
 6. **Repeat** - Continue for as many cycles as needed
+
+## 🧪 Quick Testing
+
+Want to test with shorter times? Open browser console (F12) and run:
+
+```javascript
+startStudy(1, 0.5)    // 1 min work, 30 sec break
+startStudy(0.5, 0.25) // 30 sec work, 15 sec break
+startStudy(2, 1)      // 2 min work, 1 min break
+```
 
 ## 🤝 Contributing
 
