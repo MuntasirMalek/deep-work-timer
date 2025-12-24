@@ -290,6 +290,7 @@ async function startStudy(studyMins, breakMins) {
 
     // Start the timer
     timerState.intervalId = setInterval(tick, 1000);
+    tick(); // Immediate first tick for mobile browsers
 }
 
 // ===== Show Persistent Phase Notification =====
@@ -426,11 +427,11 @@ function tick() {
 // ===== Calculate Total Study Time in Session =====
 function updateStudyTime() {
     const studyDuration = timerState.studyMinutes * 60 * 1000;
-    
+
     // Completed cycles = full study periods done
     const completedStudyPeriods = timerState.cycle - 1;
     let totalStudyMs = completedStudyPeriods * studyDuration;
-    
+
     // Add current cycle study time if we're actively studying (not on break, not in delay)
     if (timerState.isStudying && !timerState.isInDelay) {
         const now = Date.now();
@@ -444,7 +445,7 @@ function updateStudyTime() {
             totalStudyMs += studyDuration;
         }
     }
-    
+
     timerState.sessionStudySeconds = Math.floor(totalStudyMs / 1000);
 }
 
