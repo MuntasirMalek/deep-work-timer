@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Deep Work Timer | Focus & Create</title>
+    <meta name="description"
+        content="A clean, distraction-free deep work timer using the 90/20 and 50/10 rules for optimal focus and productivity.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+</head>
+
+<body>
+    <!-- Home Screen -->
+    <div id="home-screen" class="screen active">
+        <header class="home-header">
+            <img src="logo.png" alt="Deep Work Timer" class="app-logo">
+            <h1 class="app-title">Deep Work Timer</h1>
+            <p class="app-subtitle">Focus. Create. Achieve.</p>
+        </header>
+
+        <!-- Stats Card -->
+        <div class="stats-card" id="stats-card">
+            <div class="stats-icon">🔥</div>
+            <div class="stats-content">
+                <span class="stats-label">Today's Deep Work</span>
+                <span class="stats-value" id="total-study-time">0h 0m</span>
+            </div>
+        </div>
+
+        <!-- Study Rules -->
+        <div class="rules-container">
+            <!-- 90/20 Rule - On Top -->
+            <div class="rule-card rule-advanced" id="rule-90-20">
+                <div class="rule-badge">Advanced</div>
+                <h2 class="rule-title">The "90/20" Rule</h2>
+                <div class="rule-details">
+                    <div class="rule-item">
+                        <span class="rule-icon">📖</span>
+                        <span><strong>Work:</strong> 90 minutes</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-icon">☕</span>
+                        <span><strong>Break:</strong> 20 minutes</span>
+                    </div>
+                </div>
+                <p class="rule-description">
+                    Mimics your body's <em>Ultradian Rhythms</em> (natural energy cycles).
+                    Best for your hardest subjects when you're most awake.
+                </p>
+                <button class="start-btn" onclick="startStudy(90, 20)">
+                    <span class="btn-icon">▶</span>
+                    Start Work
+                </button>
+            </div>
+
+            <!-- 50/10 Rule -->
+            <div class="rule-card rule-recommended" id="rule-50-10">
+                <div class="rule-badge">Recommended</div>
+                <h2 class="rule-title">The "50/10" Rule</h2>
+                <div class="rule-details">
+                    <div class="rule-item">
+                        <span class="rule-icon">📖</span>
+                        <span><strong>Work:</strong> 50 minutes</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-icon">☕</span>
+                        <span><strong>Break:</strong> 10 minutes</span>
+                    </div>
+                </div>
+                <p class="rule-description">
+                    Aligns with the standard hour. Gives you enough time to get into "flow"
+                    but forces a break before mental fatigue sets in.
+                </p>
+                <button class="start-btn" onclick="startStudy(50, 10)">
+                    <span class="btn-icon">▶</span>
+                    Start Work
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timer Screen (Distraction-Free) -->
+    <div id="timer-screen" class="screen">
+        <div class="timer-container">
+            <div class="timer-status" id="timer-status">DEEP WORKING</div>
+            <div class="timer-ring">
+                <svg class="progress-ring" viewBox="0 0 200 200">
+                    <circle class="progress-ring-bg" cx="100" cy="100" r="90" />
+                    <circle class="progress-ring-circle" id="progress-circle" cx="100" cy="100" r="90" />
+                </svg>
+                <div class="timer-display" id="timer-display">00:00</div>
+            </div>
+            <div class="cycle-info" id="cycle-info">Cycle 1</div>
+            <div class="time-studied" id="time-studied">
+                <span class="time-studied-label">Deep Work Time So Far</span>
+                <span class="time-studied-value" id="time-studied-value">0m 0s</span>
+            </div>
+        </div>
+
+
+        <button class="skip-btn" id="skip-btn" onclick="skipDelay()" style="display: none;">
+            <span class="btn-icon">⏭</span>
+            Skip Delay
+        </button>
+
+        <button class="stop-btn" id="stop-btn" onclick="stopStudy()">
+            <span class="btn-icon">⏹</span>
+            Stop Work
+        </button>
+    </div>
+
+    <!-- Session Complete Modal -->
+    <div id="session-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">🎉</div>
+            <h2 class="modal-title">Great Work!</h2>
+            <div class="session-stats">
+                <div class="stat-row">
+                    <span class="stat-label">This Session</span>
+                    <span class="stat-value" id="session-time">0h 0m</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Today's Total</span>
+                    <span class="stat-value" id="modal-total-time">0h 0m</span>
+                </div>
+            </div>
+            <button class="modal-btn" onclick="closeModal()">Continue</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
