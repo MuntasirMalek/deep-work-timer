@@ -64,7 +64,7 @@ self.addEventListener('notificationclick', (event) => {
             .then(clientList => {
                 // Focus existing window if open
                 for (const client of clientList) {
-                    if (client.url.includes('study-timer') && 'focus' in client) {
+                    if (client.url.includes('deep-work-timer') && 'focus' in client) {
                         return client.focus();
                     }
                 }
