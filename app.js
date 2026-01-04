@@ -157,6 +157,13 @@ function stopAlarmTone() {
     }
 }
 
+function stopDelayTone() {
+    if (delayToneAudio) {
+        delayToneAudio.pause();
+        delayToneAudio.currentTime = 0;
+    }
+}
+
 // ===== Clear All Notifications =====
 function clearAllNotifications() {
     if ('serviceWorker' in navigator) {
@@ -525,8 +532,9 @@ function hideSkipButton() {
 function skipDelay() {
     if (!timerState.isInDelay) return;
 
-    // Stop alarm if playing
+    // Stop all sounds
     stopAlarmLoop();
+    stopDelayTone();
 
     // Force end the delay by setting phaseStartTime to the past
     timerState.phaseStartTime = Date.now() - timerState.phaseDuration - 1000;
