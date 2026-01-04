@@ -564,8 +564,9 @@ function stopStudy() {
     timerState.isRunning = false;
     clearSession();
 
-    // Stop alarm if playing
+    // Stop all sounds
     stopAlarmLoop();
+    stopDelayTone();
     hideSkipButton();
 
     // Release wake lock
