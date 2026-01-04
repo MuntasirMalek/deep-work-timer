@@ -184,6 +184,10 @@ body {
     animation-delay: 0.3s;
 }
 
+.rule-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
 @keyframes slideUp {
     from {
         opacity: 0;
@@ -219,6 +223,16 @@ body {
 
 .rule-recommended .rule-badge {
     background: linear-gradient(135deg, #1a73e8 0%, #4dabf7 100%);
+    color: #fff;
+}
+
+.rule-pomodoro .rule-badge {
+    background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);
+    color: #fff;
+}
+
+.rule-pomodoro .start-btn {
+    background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);
     color: #fff;
 }
 
@@ -482,10 +496,13 @@ body {
 }
 
 @keyframes pulseGlow {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 0 20px rgba(251, 188, 4, 0.4);
         transform: scale(1);
     }
+
     50% {
         box-shadow: 0 0 30px rgba(251, 188, 4, 0.6);
         transform: scale(1.02);

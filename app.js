@@ -395,17 +395,18 @@ function tick() {
             timerScreen.classList.add('in-delay');
             showSkipButton();
         } else {
-            // Break ended - start 5-min alarm delay
+            // Break ended - start dynamic wake-up alarm delay
+            const wakeupMinutes = getWakeupDuration();
             sendNotification(
                 '📚 Deep Work Time Soon!',
-                `Break is over. 5 minute alarm before next deep work cycle.`,
+                `Break is over. ${wakeupMinutes} minute${wakeupMinutes > 1 ? 's' : ''} alarm before next deep work cycle.`,
                 'study-notification'
             );
 
             timerState.isInDelay = true;
             timerState.delayType = 'post-break';
             timerState.phaseStartTime = phaseEndTime;
-            timerState.phaseDuration = 5 * 60 * 1000; // 5 minutes
+            timerState.phaseDuration = wakeupMinutes * 60 * 1000; // Dynamic duration
 
             timerScreen.classList.add('in-delay');
             showSkipButton();
@@ -498,6 +499,14 @@ function stopAlarmLoop() {
         clearInterval(timerState.alarmIntervalId);
         timerState.alarmIntervalId = null;
     }
+}
+
+// ===== Get Wake-Up Alarm Duration =====
+// Returns the wake-up alarm duration in minutes based on study session length
+function getWakeupDuration() {
+    if (timerState.studyMinutes === 25) return 1;  // 1 minute for Pomodoro
+    if (timerState.studyMinutes === 50) return 2;  // 2 minutes for 50/10
+    return 5;  // 5 minutes for 90/20 and others
 }
 
 // ===== Skip Button Functions =====
