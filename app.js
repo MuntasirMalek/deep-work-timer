@@ -110,6 +110,44 @@ function sendNotification(title, body, tag) {
 // ===== Play Delay & Alarm Tones =====
 let delayToneAudio = null;
 let alarmToneAudio = null;
+let audioUnlocked = false;
+
+// Preload and unlock audio on first user interaction
+function preloadAudio() {
+    if (audioUnlocked) return;
+
+    try {
+        // Create audio elements
+        if (!delayToneAudio) {
+            delayToneAudio = new Audio('delay_tone.mp3');
+            delayToneAudio.preload = 'auto';
+        }
+        if (!alarmToneAudio) {
+            alarmToneAudio = new Audio('alarm_tone.mp3');
+            alarmToneAudio.preload = 'auto';
+        }
+
+        // Play silent to unlock audio context (required by browsers)
+        delayToneAudio.volume = 0;
+        delayToneAudio.play().then(() => {
+            delayToneAudio.pause();
+            delayToneAudio.currentTime = 0;
+            delayToneAudio.volume = 1;
+        }).catch(() => { });
+
+        alarmToneAudio.volume = 0;
+        alarmToneAudio.play().then(() => {
+            alarmToneAudio.pause();
+            alarmToneAudio.currentTime = 0;
+            alarmToneAudio.volume = 1;
+        }).catch(() => { });
+
+        audioUnlocked = true;
+        console.log('Audio unlocked');
+    } catch (err) {
+        console.log('Audio preload error:', err);
+    }
+}
 
 function playDelayTone() {
     try {
@@ -264,6 +302,9 @@ function recoverSession() {
 
 // ===== Start Study Session =====
 async function startStudy(studyMins, breakMins) {
+    // Preload audio on first user interaction to unlock browser autoplay
+    preloadAudio();
+
     // Request notification permission on first start
     await ensureNotificationPermission();
 
