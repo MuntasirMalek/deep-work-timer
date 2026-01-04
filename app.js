@@ -130,7 +130,7 @@ function playDelayTone() {
     }
 }
 
-function playAlarmTone() {
+function playAlarmTone(shouldLoop = true) {
     try {
         // Create audio element if not exists
         if (!alarmToneAudio) {
@@ -138,9 +138,9 @@ function playAlarmTone() {
             alarmToneAudio.preload = 'auto';
         }
 
-        // Reset and play with loop
+        // Reset and play (loop based on parameter)
         alarmToneAudio.currentTime = 0;
-        alarmToneAudio.loop = true;
+        alarmToneAudio.loop = shouldLoop;
         alarmToneAudio.play().catch(err => {
             console.log('Alarm tone play failed:', err);
         });
@@ -486,8 +486,10 @@ function updateStatus() {
 
 // ===== Alarm Loop Functions =====
 function startAlarmLoop() {
-    // Start looping Nokia Tune (40 sec, loops automatically)
-    playAlarmTone();
+    // For Pomodoro (1-min alarm), play once without loop
+    // For 50/10 and 90/20 (2-5 min alarm), loop the tone
+    const shouldLoop = timerState.studyMinutes !== 25;
+    playAlarmTone(shouldLoop);
 }
 
 function stopAlarmLoop() {

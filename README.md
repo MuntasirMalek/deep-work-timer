@@ -17,7 +17,7 @@ A clean, distraction-free deep work timer inspired by Cal Newport's [Deep Work](
 - **Smart Delay System:**
   - 1-minute buffer after work sessions (Google Pixel ringtone)
   - Dynamic wake-up alarm after breaks (Nokia Tune loop):
-    - 1 min for Pomodoro (25 min work)
+    - 40 sec for Pomodoro (25 min work)
     - 2 min for 50/10 rule
     - 5 min for 90/20 rule
   - Skip button to move to next phase immediately
