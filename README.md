@@ -84,7 +84,7 @@ deep-work-timer/
 2. **Deep Work Phase** - Focus timer counts down
 3. **Post-Work Delay** - 1-minute buffer (can skip)
 4. **Break Phase** - Rest and recharge
-5. **Wake-Up Alarm** - Dynamic looping alarm (1-5 min based on work duration)
+5. **Wake-Up Alarm** - Dynamic alarm (1-5 min based on work duration)
 6. **Repeat** - Continue for as many cycles as needed
 
 ## 🧪 Quick Testing
