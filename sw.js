@@ -1,5 +1,5 @@
 // Service Worker for Deep Work Timer
-const CACHE_NAME = 'deep-work-timer-v2';
+const CACHE_NAME = 'deep-work-timer-v3';
 const ASSETS = [
     './',
     './index.html',
