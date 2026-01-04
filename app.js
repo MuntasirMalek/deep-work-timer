@@ -14,7 +14,7 @@ let timerState = {
     sessionStartTime: null,    // When the session started (for total study time)
     // Delay tracking
     isInDelay: false,          // Whether currently in a delay period
-    delayType: null,           // 'post-study' (1 min) or 'post-break' (5 min alarm)
+    delayType: null,           // 'post-study' (1 min) or 'post-break' (dynamic 1-5 min alarm)
     alarmIntervalId: null      // For looping alarm during post-break delay
 };
 

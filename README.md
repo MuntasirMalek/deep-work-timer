@@ -9,13 +9,17 @@ A clean, distraction-free deep work timer inspired by Cal Newport's [Deep Work](
 
 ## ✨ Features
 
-- **Two Timing Rules:**
-  - **90/20 Rule** - 90 min deep work + 20 min break (Ultradian Rhythms)
+- **Three Timing Rules:**
+  - **25/5 Pomodoro** - 25 min deep work + 5 min break (Classic Pomodoro)
   - **50/10 Rule** - 50 min deep work + 10 min break (Standard hour)
+  - **90/20 Rule** - 90 min deep work + 20 min break (Ultradian Rhythms)
 
 - **Smart Delay System:**
   - 1-minute buffer after work sessions (Google Pixel ringtone)
-  - 5-minute wake-up alarm after breaks (Nokia Tune loop)
+  - Dynamic wake-up alarm after breaks (Nokia Tune loop):
+    - 1 min for Pomodoro (25 min work)
+    - 2 min for 50/10 rule
+    - 5 min for 90/20 rule
   - Skip button to move to next phase immediately
 
 - **Progress Tracking:**
@@ -76,11 +80,11 @@ deep-work-timer/
 
 ## 🎯 How It Works
 
-1. **Start a Session** - Choose 90/20 or 50/10 rule
+1. **Start a Session** - Choose 25/5 Pomodoro, 50/10, or 90/20 rule
 2. **Deep Work Phase** - Focus timer counts down
 3. **Post-Work Delay** - 1-minute buffer (can skip)
 4. **Break Phase** - Rest and recharge
-5. **Wake-Up Alarm** - 5-minute looping alarm before next cycle
+5. **Wake-Up Alarm** - Dynamic looping alarm (1-5 min based on work duration)
 6. **Repeat** - Continue for as many cycles as needed
 
 ## 🧪 Quick Testing
